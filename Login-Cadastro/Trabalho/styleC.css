@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/Mesa-de-escritório-preta-moderna-com-material-de-escritório-e-espaço-de-cópia.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pgcentral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.Alogin{
+    text-align: center;
+    color: white;
+}
+.Atexto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 30px;
+    width: 350px;
+}
+.Atexto label{
+    color: black;
+    text-align: left;
+    font-size: 14px;
+}
+.Atexto input{
+    height: 45px;
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(26, 25, 25);
+    color: white;
+}
+
+footer{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    z-index: 1;
+    color: white;
+
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+#botao, #listar{
+    width: 120px;
+    cursor: pointer;
+}
+
+#painelUsuarios{
+    width: 330px;
+    min-height: 380px;
+    background: rgba(255,255,255,0.95);
+    margin-left: 30px;
+    margin-top: 40px;
+    padding: 18px;
+    border-radius: 22px;
+    display: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+}
+
+#painelUsuarios h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cardUser{
+    background: linear-gradient(135deg,#f5f5f5,#eaeaea);
+    padding: 15px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.cardUser:hover{
+    transform: translateY(-3px);
+}
+
+.cardUser b{
+    color: #444;
+}
+
+.cardUser button{
+    border: none;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.cardUser button:first-of-type{
+    background: rgb(26, 25, 25);
+    color: white;
+}
+
+.cardUser button:last-of-type{
+    background: rgb(26, 25, 25);
+    color: white;
+}
+
+.cardUser button:hover{
+    opacity: 0.85;
+}

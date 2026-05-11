@@ -1,0 +1,22 @@
+// Gerador do Prisma Client
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Fonte de dados (MariaDB)
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo da tabela Aluno
+model Aluno {
+  id            Int      @id @default(autoincrement()) // Chave primária
+  email         String   @unique                       // Email único
+  nome          String                                 // Nome do aluno
+  matricula     String   @unique                       // Matrícula única
+  criadoEm      DateTime @default(now())               // Data de criação
+  atualizadoEm  DateTime @updatedAt                    // Atualização automática
+
+  @@map("alunos") // Nome real da tabela no banco
+}
