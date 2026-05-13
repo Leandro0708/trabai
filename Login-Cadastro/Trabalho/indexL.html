@@ -7,24 +7,22 @@
     <link rel="stylesheet" href="styleL.css">
 </head>
 <body>
+
     <div class="pgcentral">
         <div class="Alogin">
             <h1>Faça seu Login</h1>
 
-            <div class="Atexto">
-                <label>Usuário:</label>
-                <input
-                    type="text"
-                    placeholder="Nome de usuário">
-                <label>Senha:</label>
-                <input
-                    type="text"
-                    placeholder="Senha">
-                    <input
-                        id="botao"
-                        type="submit"
-                        value="Entrar">
-            </div>
+            <form id="formLogin">
+                <div class="Atexto">
+                    <label>Email:</label>
+                    <input id="email" type="text" placeholder="Email">
+
+                    <label>Senha:</label>
+                    <input id="senha" type="password" placeholder="Senha">
+
+                    <input id="botao" type="submit" value="Entrar">
+                </div>
+            </form>
         </div>
     </div>
     
@@ -32,7 +30,27 @@
         Agradecemos por retornar ao nosso site! | Dev: Salem.
     </footer>
 
-    <script src="script.js"></script>
-    
+    <script>
+        const form = document.getElementById("formLogin");
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            let emailDigitado = document.getElementById("email").value;
+            let senhaDigitada = document.getElementById("senha").value;
+
+            let emailCorreto = "leandro@gmail.com";
+            let senhaCorreta = "12345";
+
+            if(emailDigitado === emailCorreto && senhaDigitada === senhaCorreta){
+                alert("Login realizado com sucesso!");
+                window.location.href = "indexC.html";
+            }
+            else{
+                alert("Email ou senha incorretos!");
+            }
+        });
+    </script>
+
 </body>
 </html>

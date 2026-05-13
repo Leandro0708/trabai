@@ -4,6 +4,8 @@ const form = document.getElementById('Fcadastro');
 const btnListar = document.getElementById('listar');
 const painel = document.getElementById('painelUsuarios');
 
+let painelVisivel = false;
+
 form.addEventListener('submit', cadastrarUsuario);
 btnListar.addEventListener('click', listarUsuarios);
 
@@ -36,7 +38,6 @@ async function cadastrarUsuario(e) {
         const data = await response.json();
         alert(data.message || 'Cadastrado com sucesso!');
         form.reset();
-        listarUsuarios();
     } catch (error) {
         console.error(error);
         alert('Erro ao cadastrar aluno no servidor. Verifique se o backend está rodando em http://localhost:3000');
@@ -44,7 +45,19 @@ async function cadastrarUsuario(e) {
 }
 
 async function listarUsuarios() {
+    if (painelVisivel) {
+        painel.style.display = 'none';
+        painel.innerHTML = '';
+        painelVisivel = false;
+        return;
+    }
+
     painel.style.display = 'block';
+    painelVisivel = true;
+    carregarUsuarios();
+}
+
+async function carregarUsuarios() {
     painel.innerHTML = '<h2>Usuários</h2>';
 
     try {
@@ -98,7 +111,7 @@ async function editarUsuario(id) {
         }
 
         alert('Aluno atualizado com sucesso');
-        listarUsuarios();
+        carregarUsuarios();
     } catch (error) {
         console.error(error);
         alert('Erro ao editar aluno. Verifique se o backend está rodando.');
@@ -116,7 +129,7 @@ async function deletarUsuario(id) {
         }
 
         alert('Aluno excluído com sucesso');
-        listarUsuarios();
+        carregarUsuarios();
     } catch (error) {
         console.error(error);
         alert('Erro ao excluir aluno. Verifique se o backend está rodando.');
